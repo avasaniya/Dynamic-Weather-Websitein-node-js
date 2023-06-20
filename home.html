@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+        integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Dynamic Weather Website</title>
+
+    
+</head>
+
+<body>
+
+    <style>
+
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100vh;
+    width: 100vw;
+}
+
+html,
+body {
+    font-size: 60%;
+    height: 100%;
+}
+
+html {
+    background: white;
+
+}
+
+.box {
+    width: 20vh;
+    height: 51vh;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.2rem 3rem rgb(233, 76, 76);
+    background: rgb(190, 190, 219);
+    position: relative;
+    overflow: hidden;
+    /* overflow: hidden; no use box ni bhar na content ne hidien karva mate thay che */
+    transform: translate3d(0, 0, 0);
+    min-width: 20rem;
+    min-height: 35rem;
+}
+
+.weve-one {
+
+    position: absolute;
+    top: 136%;
+    left: 46%;
+    background: rgb(86, 80, 80);
+    width: 50rem;
+    height: 50rem;
+    margin-left: -25rem;
+    margin-top: -25rem;
+    transform-origin: 50% 48%;
+    border-radius: 43%;
+    animation: drift 878ms infinite linear;
+    z-index: 1;
+    opacity: 0.6;
+    /* opacity no use content ne buller karva mate thay che */
+}
+
+.weve-two {
+    position: absolute;
+    top: 136%;
+    left: 46%;
+    width: 50rem;
+    height: 50rem;
+    margin-left: -25rem;
+    margin-top: -25rem;
+    transform-origin: 50% 48%;
+    border-radius: 87%;
+    background: rgb(163 185 204);
+    animation: drift 674ms  infinite linear;
+    z-index: 2;
+    opacity: 0.2;
+}
+
+.weve-tree {
+    position: absolute;
+    top: 136%;
+    left: 46%;
+    width: 50rem;
+    height: 50rem;
+    margin-left: -25rem;
+    margin-top: -25rem;
+    transform-origin: 50% 48%;
+    border-radius: 43%;
+    background:rbg(108 130 148);
+    animation: drift 848ms  infinite linear;
+    background: rgb(113, 119, 124);
+    z-index: 3;
+    opacity: 0.4;
+}
+
+
+.box:after {
+    content: "";
+    display: block;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+
+@keyframes drift {
+    from {
+        transform: rotate(0deg);
+    }
+
+    from {
+        transform: rotate(360deg);
+    }
+}
+
+.info {
+    position: absolute;
+    width: 100%;
+    height: 45%;
+    z-index: 4;
+}
+
+.location {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-weight: 400;
+    font-size: 3rem;
+    font-weight: 600;
+
+}
+
+.fa-street-view {
+    font-size: 4rem;
+    animation: rotates 3s linear infinite alternate;
+}
+
+@keyframes rotates {
+    from {
+        transform: translatex(-0.5rem);
+    }
+
+    from {
+        transform: translatex(0.5rem);
+    }
+}
+
+#date {
+    text-align: center;
+    margin-top: 0.5rem;
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: uppercase;
+
+}
+
+.temp {
+    margin-top: 2.5;
+    text-align: center;
+    font-size: 4rem;
+}
+
+.mymin_mex {
+    text-align: center;
+    margin-top: 0.3rem;
+    font-weight: 300;
+    font-size: 1.2rem;
+    color: rgb(2, 2, 2);
+}
+
+#Weathercon {
+    height: 55%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-size: 9em;
+}
+
+#Weathercon:hover {
+    transition: all 5s ease-in-out;
+    transform: scale(2);
+}
+
+
+@media(max-width:600px) {
+    .box {
+        width: 80vw;
+        height: 70vh;
+    }
+
+    .wave {
+        top: 85%
+    }
+
+    #Weathercon {
+        font-size: 12em;
+    }
+
+    .into {
+        font-size: 2rem;
+    }
+
+    @media (max-height:500px) {
+        .box {
+            height: 80vh;
+        }
+
+        .were {
+            top: 115%;
+        }
+    }
+
+    body>span {
+        width: 100vw;
+        text-align: center;
+        color: gray;
+    }
+
+}
+    </style>
+    <div class="box">
+        <div class="weve-one"></div>
+        <div class="weve-two"></div>
+        <div class="weve-tree"></div>
+
+        <div id="Weathercon">
+            <h2 class="sun"><i class="fas fa-sun" style="color: rgb(232, 239, 38);"></i></h2>
+        </div>
+        <div class="info">
+            <h2 class="location"><i class="fas fa-street-view" style="color: rgb(255, 255, 255);"></i>{%location%},{%country%}</h2>
+            <p id="date" >13 | June | Sun 12:00 AM </p>
+            <h1 class="temp">{%tempval%}&deg;C</h1>
+            <h3 class="mymin_mex">Min {%tempmin%}&deg;C | Max {%tempmax%}&deg;C</h3>
+        </div>
+    </div>
+    <script>
+
+        const curdate = document.getElementById("date");
+        let Weathercon = document.getElementById("Weathercon");
+
+        const tempstatus = "{%tempstatus%}";
+
+        if(tempstatus == "sunny")
+        {
+            Weathercon.innerHTML= 
+            "<i class='fas fa-sun' style='color: rgb(232, 239, 38);'></i>"
+        }
+        else if (tempstatus == "clouds")
+        {
+            Weathercon.innerHTML= 
+            "<i class='fa-solid fa-cloud' style='color: rgb(232, 239, 38);'></i>"
+        }
+        else if (tempstatus == "rainy")
+        {
+            Weathercon.innerHTML= 
+            "<i class='fa-solid fa-cloud-rain' style='color: rgb(232, 239, 38);'></i>"
+        }        
+        else{
+            Weathercon.innerHTML= 
+            "<i class='fas fa-sun' style='color: rgb(232, 239, 38);'></i>"
+        }
+
+        const getCurrentDay=()=>{
+            let weekday = new Array(7);
+
+            weekday[0]="Sun";
+            weekday[1]="Mon";
+            weekday[2]="Tue";
+            weekday[3]="Wed";
+            weekday[4]="Thu";
+            weekday[5]="Fri";
+            weekday[6]="Sat";
+
+            let CurrentDay = new Date();
+            let day= (weekday[CurrentDay.getDay()]);
+            return day;
+        
+        };
+
+        const getCurrentTime = () => {
+            const months = [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December"
+            ];
+
+
+            let now = new Date();
+            let month = months[now.getMonth()];
+            //var month = now.getMonth()+ 1;  //ama month number ma ave che 
+            let date = now.getDate();
+            //var year= now.getFullYear();
+            //console.log(month +"/"+ date);
+
+
+
+                let hours=now.getHours();
+                let mins=now.getMinutes();
+
+                let periods="AM";
+
+              if(hours >= 12){
+
+                    periods="PM";
+
+              if(hours > 12) hours -=12;
+
+              }
+
+                if(mins<10){
+                    mins = "0" + mins;
+                }
+
+                return  `${date} ${month} | ${hours}:${mins}/${periods}`;
+        };
+
+            curdate.innerHTML = getCurrentDay() + " | " + getCurrentTime();
+         </script>
+    </body>
+</html>

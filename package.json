@@ -1,0 +1,15 @@
+{
+  "name": "weather-website",
+  "version": "1.0.0",
+  "description": "cretting a new website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "akash vasaniya",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.88.2",
+    "requests": "^0.3.0"
+  }
+}
